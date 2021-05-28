@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import Letter from './letter';
+import Music from './music';
+import Menu from './menu';
+import User from './user';
+import Report from './report';
+import Tabla from './tabla';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+export default function App() {
+  return(
+    <Router>
+      <Menu />
+      <Route path='/' exact component={Letter} />
+      <Route path='/music' component={Music} />
+      <Route path='/user' component={User} />
+      <Route path='/report/:id' component={Report} />
+      <Route path='/tabla' component={Tabla} />
+    </Router>
   );
 }
-
-export default App;
